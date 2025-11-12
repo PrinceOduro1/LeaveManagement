@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'leave_app'
+    'leave_app',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,23 @@ EMAIL_HOST_USER = 'LeaveApp'
 EMAIL_HOST_PASSWORD = '!2015wmfGoldprx3'
 DEFAULT_FROM_EMAIL = "Leave Request <nspit@northernashantimines.com>"
 
+import os
+# ✅ PWA Configuration
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+
+PWA_APP_NAME = 'Leave Management System'
+PWA_APP_SHORT_NAME = 'LeaveSystem'
+PWA_APP_DESCRIPTION = "Manage leave requests, approvals, and daily reports efficiently."
+PWA_APP_THEME_COLOR = '#0d6efd'  # Bootstrap primary
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_START_URL = '/'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/images/logo1.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
