@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h3>Supervisor Daily Reports</h3>
+
+  <!-- Date Filter -->
+  <form method="get" action="{% url 'supervisor_dashboard' %}" class="form-inline mb-3">
+    <input type="hidden" name="from" value="daily">
+    <label for="date" class="mr-2 font-weight-bold">Filter by date:</label>
+    <input type="date" id="date" name="date" value="{{ selected_date|date:'Y-m-d' }}" class="form-control mr-2">
+    <button type="submit" class="btn btn-primary">Filter</button>
+  </form>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Employee</th>
+        <th>Summary</th>
+        <th>Date Submitted</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for report in reports %}
+      <tr>
+        <td>{{ report.employee.user.get_full_name }}</td>
+        <td>{{ report.summary }}</td>
+        <td>{{ report.submitted_at|date:"M d, Y H:i" }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="3" class="text-center">No daily reports for {{ selected_date|date:"M d, Y" }}.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

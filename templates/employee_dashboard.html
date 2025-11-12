@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Employee Dashboard{% endblock %}
+{% block content %}
+<h3>Welcome, {{ employee.user.first_name }} {{ employee.user.last_name }}</h3>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <h5>Leave Summary</h5>
+    <p><strong>Total Leave Days:</strong> {{ employee.annual_leave_days }}</p>
+    <p><strong>Used:</strong> {{ employee.leave_days_taken }}</p>
+    <p><strong>Remaining:</strong> {{ employee.remaining_leave_days }}</p>
+    <a href="{% url 'submit_leave' %}" class="btn btn-primary">Request Leave</a>
+  </div>
+</div>
+
+<h5>My Leave Requests</h5>
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Days</th>
+      <th>Status</th>
+      <th>Supervisor Comment</th>
+      <th>HR Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for leave in leaves %}
+      <tr>
+        <td>{{ leave.start_date }}</td>
+        <td>{{ leave.end_date }}</td>
+        <td>{{ leave.leave_days_requested }}</td>
+        <td>{{ leave.status }}</td>
+        <td>{{ leave.supervisor_comment }}</td>
+        <td>{{ leave.hr_comment }}</td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="6" class="text-center">No leave requests yet.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

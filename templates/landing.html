@@ -1,0 +1,280 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Portal</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <style>
+        /* Modern Professional Company Portal Design */
+
+:root {
+    --gold-primary: #d4af37;
+    --gold-dark: #b8941f;
+    --gold-light: #f0e68c;
+    --navy-dark: #1a2332;
+    --navy-medium: #2c3e50;
+    --white: #ffffff;
+    --gray-light: #f8f9fa;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+}
+
+/* Enhanced Navbar */
+.bg-gold {
+    background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%) !important;
+    border-bottom: 3px solid var(--gold-primary);
+}
+
+.navbar {
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: translateY(-2px);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    padding: 0.5rem 1.2rem !important;
+    margin: 0 0.3rem;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    background: rgba(212, 175, 55, 0.2) !important;
+    color: var(--gold-primary) !important;
+    transform: translateY(-2px);
+}
+
+.navbar-dark .navbar-nav .active .nav-link {
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--gold-primary) !important;
+}
+
+/* Hero Section */
+.container.text-center {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.display-4 {
+    background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.lead {
+    color: #6c757d;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Banner Image Enhancement */
+.banner-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    margin: 2rem 0;
+}
+
+.img-fluid {
+    border-radius: 16px;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.img-fluid:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Enhanced Buttons */
+.btn {
+    padding: 0.875rem 2.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-dark {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+    border: 2px solid var(--gold-primary);
+}
+
+.btn-dark:hover {
+    background: linear-gradient(135deg, var(--navy-medium) 0%, var(--navy-dark) 100%);
+    border-color: var(--gold-light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.btn-outline-dark {
+    border: 2px solid var(--navy-dark);
+    color: var(--navy-dark);
+    background: transparent;
+}
+
+.btn-outline-dark:hover {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+    border-color: var(--gold-primary);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(26, 35, 50, 0.3);
+}
+
+/* Content Cards (if needed) */
+.card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .lead {
+        font-size: 1.1rem;
+    }
+    
+    .btn {
+        padding: 0.75rem 2rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Loading Animation */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Footer Enhancement (if you add one) */
+footer {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 3px solid var(--gold-primary);
+}
+
+    </style>
+</head>
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gold shadow-sm">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold text-white" href="{% url 'landing' %}">
+                <img src="{% static 'images/logo1.png' %}" alt="Logo" height="35" class="mr-2">
+                NAMLC
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item {% if request.path == '/' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'landing' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'report' %}">Daily Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'employee_dashboard' %}">Submit Leave</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font-weight-bold" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font-weight-bold" href="{% url 'login' %}">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Section -->
+    <div class="container text-center mt-5">
+        <h1 class="display-4 font-weight-bold text-gold">Welcome to Northern Ashanti Mines Limited Company</h1>
+        <p class="lead mt-3 text-secondary">
+            Access all your company tools in one place — manage your leave, submit reports, and more.
+        </p>
+
+        <!-- Full-width banner -->
+        <div class="mt-4 mb-4">
+            <img src="{% static 'images/nguvu-elephant-2024-scaled.jpg' %}" 
+                 alt="Welcome Banner" 
+                 class="img-fluid w-100 rounded shadow-sm" 
+                 style="max-height: 450px; object-fit: cover;">
+        </div>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'employee_dashboard' %}" class="btn btn-dark btn-lg mt-3">Go to Dashboard</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-outline-dark btn-lg mt-3">Login to Continue</a>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

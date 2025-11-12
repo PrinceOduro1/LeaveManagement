@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up - Leave Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container mt-5" style="max-width: 500px;">
+    <h3 class="text-center mb-4">Create Employee Account</h3>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            <label>First Name</label>
+            <input type="text" name="first_name" class="form-control" required>
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Last Name</label>
+            <input type="text" name="last_name" class="form-control" required>
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Employee ID</label>
+            <input type="text" name="employeeid" class="form-control" required>
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" required>
+        </div>
+
+        <!-- Department dropdown -->
+        <div class="form-group mb-3">
+            <label>Department</label>
+            <select name="department" class="form-control" required>
+                <option value="">-- Select Department --</option>
+                <option value="HR">Human Resources & Administration</option>
+                <option value="SHSESG">SHSESG</option>
+                <option value="Mining">Mining</option>
+                <option value="Processing">Processing</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Logistics">Engineering & Construction</option>
+            </select>
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Position</label>
+            <input type="text" name="position" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100 mt-3">Sign Up</button>
+        <p class="text-center mt-3">
+            Already have an account? <a href="{% url 'login' %}">Login</a>
+        </p>
+    </form>
+</div>
+</body>
+</html>

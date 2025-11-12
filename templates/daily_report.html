@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Submit Daily Report{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h3>Submit Daily Report</h3>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Summary of Work</label>
+            <textarea name="summary" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit Report</button>
+    </form>
+</div>
+{% endblock %}
